@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react"
-import { getNewArticles } from "../helpers/getNewArticles";
+import { useState, useEffect } from 'react'
+import { getNewArticles } from '../helpers';
 
 export const useFetchArticles = () => {
     const [articles, setArticles] = useState([]);
