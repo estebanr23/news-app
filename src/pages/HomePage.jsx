@@ -1,6 +1,6 @@
-import { HorizontalCard, VerticalCard, NavBar, Footer, Carousel } from './components';
+import { HorizontalCard, VerticalCard, NavBar, Footer, Carousel } from '../components';
 
-export const NewsApp = () => {
+export const HomePage = () => {
   return (
     <>
         <NavBar />
