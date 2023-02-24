@@ -1,16 +1,24 @@
-import { VerticalCard, NavBar, Footer } from '../components';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { NavBar, Footer, SearchResults } from '../components';
 
 export const SearchPage = () => {
 
+  const { state: { query } } = useLocation();
+  const [searchText, setSearchText] = useState(query);
+
+  useEffect(() => {
+    setSearchText(query)
+  }, [query])
+  
+
   return (
-    <>
+    <div>
         <NavBar />
 
-        {/* <section className="mt-4 px-48">
-            <VerticalCard />
-        </section> */}
+        <SearchResults q={ searchText } />
 
         <Footer />
-    </>
+    </div>
   )
 }

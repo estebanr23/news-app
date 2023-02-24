@@ -33,7 +33,7 @@ export const Carousel = () => {
                 <div className="relative h-56 overflow-hidden rounded-lg h-full">     
                     {
                         articles.slice(0, 3).map((art) => (
-                            <div key={ art.index } className={ art.index === active ? "duration-700 ease-in-out" : "hidden duration-700 ease-in-out" } data-carousel-item>
+                            <div key={ `item${ art.index }-${ Date.now() }` } className={ art.index === active ? "duration-700 ease-in-out" : "hidden duration-700 ease-in-out" } data-carousel-item>
                                 <img src={ art.urlToImage || "../src/assets/carousel-1.svg" } className="absolute block h-full w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt={ art.title } />
                                 <a href={ art.url } target="_blank" className="absolute inset-x-8 bottom-10"><h2 className="text-2xl font-bold hover:underline">{ art.title }</h2></a>
                             </div>
@@ -59,7 +59,7 @@ export const Carousel = () => {
             <div className="flex flex-col w-5/12 gap-2">
                 {   
                     articles.slice(3, 6).map((art) => (
-                        <a href={ art.url } target="_blank" className="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <a key={ `item${ art.index }-${ Date.now() }` } href={ art.url } target="_blank" className="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{ art.title }</h5>
                             <p className="overflow-hidden h-12 font-normal text-gray-700 dark:text-gray-400">{ art.description }</p>
                         </a>

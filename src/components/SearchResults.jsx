@@ -1,13 +1,19 @@
-import { useFetchTechnology } from '../hooks';
-import { Spinner } from './Spinner';
+import { useFetchSearch } from '../hooks';
+import { Spinner } from './Spinner'
 
-export const VerticalCard = () => {
+export const SearchResults = ({ q = '' }) => {
+    
+    const { articles, isLoading } = useFetchSearch(q);
 
-    const { articles, isLoading } = useFetchTechnology();
+    const verifyArticles = () => {
+        return articles.length == 0
+            ? "not-result"
+            : ""
+    }
 
   return (
-    <>
-        <h1 className="mb-4 font-bold text-2xl text-center uppercase">Technology</h1>
+    <section className={`mt-4 px-48 ${ verifyArticles() }`}>
+        <h1 className="mb-4 font-bold text-2xl text-center uppercase">Search of Results for <b>"{ q }"</b></h1>
         {
             isLoading && ( <Spinner /> )
         }
@@ -29,6 +35,6 @@ export const VerticalCard = () => {
                 ))
             }
         </div>
-    </>
+    </section >
   )
 }

@@ -3,12 +3,12 @@ export const getTechnologyArticles = async() => {
     const resp = await fetch(url);
     const { articles } = await resp.json();
     
-    const data = articles.map((art) => ({
+    const data = articles.map((art, index) => ({
         title: art.title,
         description: art.description,
         url: art.url,
         urlToImage: art.urlToImage,
-        publishedAt: art.publishedAt,
+        index: index
     }))
 
     return data;

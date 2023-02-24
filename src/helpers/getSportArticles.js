@@ -3,10 +3,11 @@ export const getSportArticles = async() => {
     const resp = await fetch(url);
     const { articles } = await resp.json();
     
-    const data = articles.map(art => ({
+    const data = articles.map((art, index) => ({
         title: art.title,
         url: art.url,
         urlToImage: art.urlToImage,
+        index: index
     }))
 
     return data;
